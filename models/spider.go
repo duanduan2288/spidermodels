@@ -10,7 +10,7 @@ var RedisModels = &RedisModel{}
 type RedisModel struct{}
 
 func (s *RedisModel) SetContent(key, content string) error {
-	conn := Redis().Get()
+	conn := Redis("default").Get()
 	defer conn.Close()
 
 	if _, err := conn.Do("SET", key, content); err != nil {
