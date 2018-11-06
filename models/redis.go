@@ -36,7 +36,7 @@ func InitRedis(confs map[string]RedisService) {
 }
 
 func newRedis(conf RedisService) *redis.Pool {
-
+	fmt.Println(conf)
 	return &redis.Pool{
 		MaxIdle:     conf.MaxIdle,
 		IdleTimeout: time.Duration(conf.IdleTimeout) * time.Second,

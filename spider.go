@@ -3,12 +3,25 @@ package main
 import (
 	"bytes"
 	"crypto/tls"
+	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
+
+	"github.com/duanduan2288/spidermodels/models"
+	// spider "github.com/duanduan2288/spidermodels/models/spider"
 )
 
-func main() {
+func myHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello there!\n")
+	err := models.RedisModel.SetContent("dddd", "duan")
+	fmt.Println(err)
+}
 
+func main() {
+	models.RedisInit()
+	http.HandleFunc("/", myHandler) //	设置访问路由
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 //Spider 抓取
