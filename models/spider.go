@@ -12,7 +12,7 @@ func (s *RedisModel) SetContent(key, content string) error {
 	conn := Redis().Get()
 	defer conn.Close()
 
-	if _, err = conn.Do("SET", key, content); err != nil {
+	if _, err := conn.Do("SET", key, content); err != nil {
 		return err
 	}
 
