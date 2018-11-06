@@ -22,6 +22,8 @@ func Redis(name ...string) *redis.Pool {
 		k = name[0]
 	}
 
+	fmt.Println("RedisPools[k] %v,k:%v", RedisPools[k], k)
+
 	if pool, ok := RedisPools[k]; ok {
 		return pool
 	}
