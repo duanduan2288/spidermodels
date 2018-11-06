@@ -4,16 +4,16 @@ package models
 // 	"github.com/duanduan2288/spidermodels/models"
 // )
 
-var RedisModel = &Redis{}
+var RedisModels = &RedisModel{}
 
-type Redis struct{}
+type RedisModel struct{}
 
-func (s *Redis) SetContent(key, content string) error {
-	conn := models.Redis().Get()
+func (s *RedisModel) SetContent(key, content string) error {
+	conn := Redis().Get()
 	defer conn.Close()
 
 	if _, err = conn.Do("SET", key, content); err != nil {
-		return models.Error(err)
+		return err
 	}
 
 	return nil

@@ -14,7 +14,7 @@ import (
 
 func myHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello there!\n")
-	err := models.RedisModel.SetContent("dddd", "duan")
+	err := models.RedisModels.SetContent("dddd", "duan")
 	fmt.Println(err)
 }
 
