@@ -26,6 +26,8 @@ func Redis(name ...string) *redis.Pool {
 		return pool
 	}
 
+	panic(fmt.Errorf("unkonw redis %s", k))
+	
 	return nil
 }
 
@@ -44,6 +46,7 @@ func newRedis(conf RedisService) *redis.Pool {
 		Dial: func() (redis.Conn, error) {
 			c, err := redis.Dial("tcp", conf.Addr)
 			if err != nil {
+				fmt.
 				return nil, err
 			}
 			if len(conf.Password) > 0 {

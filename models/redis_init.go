@@ -11,4 +11,6 @@ func RedisInit() {
 	}
 
 	configNames["default"] = redisService
+
+	InitRedis(configNames)
 }
