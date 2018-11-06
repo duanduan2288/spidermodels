@@ -1,8 +1,9 @@
 package models
 
-// import (
-// 	"github.com/duanduan2288/spidermodels/models"
-// )
+import (
+	// "github.com/duanduan2288/spidermodels/models"
+	"fmt"
+)
 
 var RedisModels = &RedisModel{}
 
@@ -10,6 +11,9 @@ type RedisModel struct{}
 
 func (s *RedisModel) SetContent(key, content string) error {
 	conn := Redis().Get()
+
+	fmt.Println(conn)
+	return nil
 	defer conn.Close()
 
 	if _, err := conn.Do("SET", key, content); err != nil {
