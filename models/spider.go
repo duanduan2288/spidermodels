@@ -1,8 +1,8 @@
 package models
 
 import (
-	// "github.com/duanduan2288/spidermodels/models"
-	"fmt"
+// "github.com/duanduan2288/spidermodels/models"
+// "fmt"
 )
 
 var RedisModels = &RedisModel{}
