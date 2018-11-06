@@ -36,6 +36,8 @@ func InitRedis(confs map[string]RedisService) {
 	for k, v := range confs {
 		RedisPools[k] = newRedis(v)
 	}
+
+	fmt.Printf("InitRedis: init redis done %v\n", RedisPools)
 }
 
 func newRedis(conf RedisService) *redis.Pool {
