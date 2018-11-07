@@ -36,14 +36,13 @@ func Redis(name ...string) *redis.Pool {
 func InitRedis(confs map[string]RedisService) {
 	RedisPools := make(map[string]*redis.Pool)
 	for k, v := range confs {
-		RedisPools[k] = newRedis(v)
+		RedisPools[k] = NewRedis(v)
 	}
 
 	fmt.Printf("InitRedis: init redis done %v\n", RedisPools)
 }
 
-func newRedis(conf RedisService) *redis.Pool {
-	fmt.Println(conf)
+func NewRedis(conf RedisService) *redis.Pool {
 	return &redis.Pool{
 		MaxIdle:     conf.MaxIdle,
 		IdleTimeout: time.Duration(conf.IdleTimeout) * time.Second,
