@@ -1,8 +1,8 @@
 module github.com/duanduan2288/spidermodels
 
-require (
-	github.com/garyburd/redigo v2.0.0+incompatible
-	github.com/gomodule/redigo v2.0.0+incompatible // indirect
-)
+go 1.13
 
-replace github.com/garyburd/redigo v2.0.0+incompatible => github.com/gomodule/redigo v2.0.0+incompatible
+require (
+	github.com/PuerkitoBio/goquery v1.7.1
+	github.com/garyburd/redigo v1.6.2
+)
